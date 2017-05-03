@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Renta de autos</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="hero">
+<nav class="navbar navbar-default" role="navigation">
+  <div style="background-color: black;"  class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul  class="nav navbar-nav">
+      <% if session[:user_id] %>
+      <li style="background-color: black;" class="active"><a style="background-color: black;"><%= link_to "Home", root_path %> &nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+      <li style="background-color: black;" class="active"><a style="background-color: black;"><%= link_to "Clientes", doctors_path %> &nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+      <li style="background-color: black;" class="active"><a style="background-color: black;"><%= link_to "Auto", pets_path %> &nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+      <li style="background-color: black;" class="active"><a style="background-color: black;" ><%= link_to "Renta de Auto", appointments_path %> &nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+      <li style="background-color: black;" class="active"><a style="background-color: black;" ><%= link_to 'Usuarios', users_path %> &nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+  <%= button_to 'Cerrar Session', logout_path, method: :delete   %>
+        <% end %>
+        
+      </li>	
+    </ul>
+
+  </div><!-- /.navbar-collapse -->
+</nav>
+<div class="container">
+    <%= yield %>  
+</div>
+  </div>
+</body>
+</html>

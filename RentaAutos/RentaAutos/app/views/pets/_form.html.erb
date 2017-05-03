@@ -1,0 +1,38 @@
+<%= form_for(@pet) do |f| %>
+  <% if @pet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
+      <ul>
+      <% @pet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    Marca<br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    Modelo<br>
+    <%= f.text_field :breed %>
+  </div>
+  
+  <div class="field">
+    Numero de pasajeros<br>
+    <%= f.number_field :age %>
+  </div>
+  <div class="field">
+    Años de servicio<br>
+    <%= f.number_field :weight %>
+  </div>
+  <div class="field">
+    Fecha de Alta<br>
+    <%= f.date_select :last_appointment %>
+
+  </div>
+  <div class="actions">
+    <%= f.submit :Aceptar%>
+  </div>
+<% end %>
